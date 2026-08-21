@@ -1,0 +1,1 @@
+# Documenta as tabelas e colunas.
