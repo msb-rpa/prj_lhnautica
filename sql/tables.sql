@@ -12,13 +12,19 @@ CREATE TABLE bronze.addresses (
     city TEXT,
     state TEXT,
     country TEXT,
-    is_primary TEXT
+    is_primary TEXT,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.attributes (
     id TEXT,
     name TEXT,
-    data_type TEXT
+    data_type TEXT,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.brands (
@@ -27,7 +33,10 @@ CREATE TABLE bronze.brands (
     country TEXT,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.categories (
@@ -37,7 +46,10 @@ CREATE TABLE bronze.categories (
     parent_category_id TEXT,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.customers (
@@ -51,7 +63,10 @@ CREATE TABLE bronze.customers (
     phone TEXT,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.employees (
@@ -65,7 +80,10 @@ CREATE TABLE bronze.employees (
     termination_date DATE,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.fiscal_invoices (
@@ -79,14 +97,20 @@ CREATE TABLE bronze.fiscal_invoices (
     total_amount NUMERIC,
     xml_storage_uri TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.goods_receipt_items (
     id INTEGER,
     goods_receipt_id INTEGER,
     purchase_order_item_id INTEGER,
-    quantity_received TEXT
+    quantity_received TEXT,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.goods_receipts (
@@ -95,7 +119,10 @@ CREATE TABLE bronze.goods_receipts (
     received_by_employee_id INTEGER,
     received_at TIMESTAMP,
     notes TEXT,
-    created_at TIMESTAMP
+    created_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.locations (
@@ -112,7 +139,10 @@ CREATE TABLE bronze.locations (
     country TEXT,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.order_items (
@@ -123,7 +153,10 @@ CREATE TABLE bronze.order_items (
     unit_price NUMERIC,
     icms_rate NUMERIC,
     ipi_rate NUMERIC,
-    line_total NUMERIC
+    line_total NUMERIC,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.orders (
@@ -139,7 +172,10 @@ CREATE TABLE bronze.orders (
     total NUMERIC,
     placed_at TIMESTAMP,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.payments (
@@ -151,7 +187,10 @@ CREATE TABLE bronze.payments (
     status TEXT,
     paid_at TIMESTAMP,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.product_suppliers (
@@ -162,7 +201,10 @@ CREATE TABLE bronze.product_suppliers (
     lead_time_days INTEGER,
     is_preferred TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.product_variants (
@@ -177,7 +219,10 @@ CREATE TABLE bronze.product_variants (
     ipi_rate NUMERIC,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.products (
@@ -190,7 +235,10 @@ CREATE TABLE bronze.products (
     unit_of_measure TEXT,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.purchase_order_items (
@@ -199,7 +247,10 @@ CREATE TABLE bronze.purchase_order_items (
     product_variant_id INTEGER,
     quantity_ordered INTEGER,
     unit_cost NUMERIC,
-    line_total NUMERIC
+    line_total NUMERIC,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.purchase_orders (
@@ -215,7 +266,10 @@ CREATE TABLE bronze.purchase_orders (
     placed_at TIMESTAMP,
     expected_delivery_at DATE,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.return_items (
@@ -225,7 +279,10 @@ CREATE TABLE bronze.return_items (
     quantity TEXT,
     action TEXT,
     exchange_variant_id INTEGER,
-    unit_refund_amount NUMERIC
+    unit_refund_amount NUMERIC,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.returns (
@@ -238,7 +295,10 @@ CREATE TABLE bronze.returns (
     reason TEXT,
     total_refund_amount NUMERIC,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.stock_levels (
@@ -246,7 +306,10 @@ CREATE TABLE bronze.stock_levels (
     location_id TEXT,
     quantity_on_hand NUMERIC,
     reorder_point TEXT,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.stock_movements (
@@ -260,7 +323,10 @@ CREATE TABLE bronze.stock_movements (
     employee_id INTEGER,
     notes TEXT,
     occurred_at TIMESTAMP,
-    created_at TIMESTAMP
+    created_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.suppliers (
@@ -275,12 +341,18 @@ CREATE TABLE bronze.suppliers (
     contact_name TEXT,
     is_active TEXT,
     created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 
 CREATE TABLE bronze.variant_attribute_values (
     product_variant_id INTEGER,
     attribute_id TEXT,
-    value TEXT
+    value TEXT,
+    _source_file TEXT,
+    _loaded_at TIMESTAMP,
+    _line_number INTEGER
 );
 

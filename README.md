@@ -19,16 +19,32 @@ Detalhes completos do contexto em [`docs/instrucoes_gerais_projeto.md`](docs/ins
 
 ## Estrutura do projeto
 
+```
 prj_lhnautica_revisado/
 ├── data/raw/ # CSVs extraídos do ZIP de origem
 ├── docs/ # decisões técnicas e enunciados do desafio
 ├── sql/ # DDL (db.sql, schemas.sql, tables.sql) e queries
 ├── src/ # scripts Python de cada questão
 └── output/ # resultados finais (CSVs, relatórios, dashboard)
+```
 
 ## Arquitetura
 
-Camada **Bronze** implementada: preserva o dado bruto dos CSVs, com tipos inferidos de forma permissiva (sem tratamento, sem PK/FK). Camadas **Silver/Gold** (dado tratado e modelado) ficam documentadas como evolução futura da arquitetura, fora do escopo obrigatório deste desafio.
+Camada **Bronze** implementada: preserva o dado bruto dos CSVs, com tipos inferidos de forma permissiva (sem tratamento, sem PK/FK). Toda tabela Bronze inclui colunas de auditoria (`_source_file`, `_loaded_at`, `_line_number`) para rastreabilidade da ingestão. Camadas **Silver/Gold** (dado tratado e modelado) ficam documentadas como evolução futura da arquitetura.
+
+## Ordem de Execução
+
+Apesar da numeração do desafio, a ordem lógica de execução é:
+
+1. **Q2** — Geração do schema (`schema.sql`)
+2. **Q3** — Carregamento dos dados no PostgreSQL
+3. **Q1** — EDA da tabela `orders`
+4. **Q4** — Análise de clientes fiéis
+5. **Q5** — Dimensão de calendário
+6. **Q6** — Previsão de demanda
+7. **Q7** — Sistema de recomendação
+
+> Q2 e Q3 precisam vir primeiro pois criam a base de dados usada pelas demais análises.
 
 ## Progresso
 
