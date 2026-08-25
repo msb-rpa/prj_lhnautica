@@ -63,7 +63,8 @@ Com base na análise exploratória realizada, escreva um breve diagnóstico sobr
 **Possíveis outliers em "total":**
 
 ```
-Os valores variam de R$ 32,62 a R$ 127.262,02, uma faixa ampla, mas sem zeros ou negativos. A diferença grande entre mínimo e máximo pode indicar outliers (pedidos atípicos de alto valor) ou apenas a diversidade natural do negócio; não dá para confirmar sem cruzar com outras tabelas.
+Os valores variam de R$ 32,62 a R$ 127.262,02, uma faixa ampla, mas sem zeros ou negativos. 
+Aplicando o método IQR (Intervalo Interquartílico), ver `q1_eda_sql_.sql`, foram identificados registros fora do limite superior (Q3 + 1,5×IQR), indicando possíveis outliers de alto valor. Não é possível confirmar se são erros ou pedidos legítimos de maior porte sem cruzar com outras tabelas.
 ```
 
 **Qualidade dos dados (nulos ou inconsistências):**
